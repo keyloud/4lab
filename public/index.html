@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Список задач</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="allFlex">
+      <div class="flexTask">
+          <form v-on:submit.prevent="addTask">
+          <h1>Список задач</h1>
+          <label for="new-name">Поиск:</label>
+          <input v-model="searchQuery" type="text" placeholder="Введите название задачи...">
+          <label for="new-name">Название:</label>
+          <input type="text" id="new-name" v-model="newTask.name">
+
+          <label for="new-description">Описание:</label>
+          <input type="text" id="new-description" v-model="newTask.description">
+
+
+          <label for="new-time">Время:</label>
+          <input type="number" id="new-time" v-model="newTask.time">
+
+          <button type="submit">Добавить задачу</button>
+        </form>
+
+        
+      </div>
+    
+      <hr>
+      
+      <div style="margin-right: 300px;">
+        <h2>Графики</h2>
+        <div>
+          <label for="chartType">Тип графика:</label>
+          <select id="chartType" v-model="chartType">
+            <option value="bar">Столбчатая диаграмма</option>
+            <option value="pie">Круговая диаграмма</option>
+          </select>
+        </div>
+        <div class="graphsFlex">
+          <button @click="drawChart">Отобразить график</button>
+          <canvas width="400" height="130" id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <form v-if="editingTask" v-on:submit.prevent="updateTask">
+      <h2>REDACTOR</h2>
+      <label for="name">Название:</label>
+      <input type="text" id="name" v-model="newTask.name">
+    
+      <label for="edit-description">Описание:</label>
+      <input type="text" id="edit-description" v-model="editingTask.description">
+    
+      <label for="time">Время:</label>
+      <input type="number" id="time" v-model="newTask.time">
+    
+      <button type="submit">Обновление задачи</button>
+    </form>
+    
+  <div class="liFlex">
+    <h2>TableTask</h2>
+    <ul>
+      <li v-for="task in filteredTasks" :key="task.id">
+        {{ task.name }} - {{ task.time }} мин.
+        <br>
+        Описание: {{ task.description }}
+        <br>
+        <progress :value="task.completed ? 100 : task.progress" max="100"></progress>
+        <span>{{ task.progress }}</span>
+        <button @click="deleteTask(task.id)">Удалить</button>
+        <button @click="editTask(task)">Изменить</button>
+        <button @click="completeTask(task)">Отметить завершённой</button>
+      </li>
+    </ul>
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+  <script src="script.js">
+
+
+  </script>
+</body>
+
+</html>

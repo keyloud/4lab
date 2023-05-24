@@ -1,0 +1,105 @@
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  form {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+
+  button[type="submit"],
+  button {
+    padding: 10px 15px;
+    background-color: #0d0e06;
+    color: #1efb43;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  button[type="submit"]:hover,
+  button:hover {
+    background-color: #0091ff;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  li span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  progress {
+    width: 80%;
+    margin: 10px 10px;
+    display: block;
+  }
+
+  #app div {
+    margin-bottom: 20px;
+  }
+
+  #app div h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  #chartType {
+    margin-right: 10px;
+    padding: 5px;
+  }
+
+  canvas {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+  .flexTask {
+    display: flex;
+    margin-left: 300px ;
+  }
+
+  .graphsFlex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .liFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .allFlex {
+    display: flex;
+  }
